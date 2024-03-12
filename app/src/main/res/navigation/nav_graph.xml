@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/itemsFragment">
+
+    <fragment
+        android:id="@+id/itemsFragment"
+        android:name="ru.vk_market.presentation.fragments.items.ItemsFragment"
+        android:label="fragment_items"
+        tools:layout="@layout/fragment_items" >
+        <action
+            android:id="@+id/action_itemsFragment_to_itemInfoFragment"
+            app:destination="@id/itemInfoFragment"
+            app:enterAnim="@anim/slide_to_left"
+            app:exitAnim="@anim/exit_to_left"
+            app:popUpTo="@id/itemsFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/itemInfoFragment"
+        android:name="ru.vk_market.presentation.fragments.itemInfo.ItemInfoFragment"
+        android:label="ItemInfoFragment"
+        tools:layout="@layout/fragment_item_info">
+        <argument
+            android:name="item"
+            app:argType="ru.vk_market.entities.ItemDTO" />
+    </fragment>
+
+
+</navigation>

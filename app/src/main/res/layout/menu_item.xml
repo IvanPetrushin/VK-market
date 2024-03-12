@@ -1,0 +1,9 @@
+<!-- res/layout/menu_item.xml -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:textAppearance="?android:attr/textAppearanceListItem"
+    android:textColor="?android:attr/textColorPrimary"
+    android:background="@drawable/rounded_corner_background" />

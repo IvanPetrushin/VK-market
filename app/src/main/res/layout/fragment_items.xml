@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/neutral_10">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchBar"
+        style="@style/searchBar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/searchBarHeight"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@id/buttonCategoryMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/buttonSearch"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            android:contentDescription="@string/button_search_description"
+            android:focusable="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/neutral_90" />
+
+        <EditText
+            android:id="@+id/edSearchRequest"
+            style="@style/textSearchBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:hint="@string/hint_search"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textColorHint="@color/neutral_60"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/buttonCategoryMenu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="3dp"
+        android:clickable="true"
+        android:contentDescription="@string/button_category_menu_description"
+        android:focusable="true"
+        android:padding="4dp"
+        android:src="@drawable/ic_dots"
+        app:layout_constraintBottom_toBottomOf="@id/searchBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/searchBar"
+        app:tint="@color/neutral_90" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="7dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchBar"
+        tools:context=".ui.fragments.ItemsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSearchResults"
+                style="@style/textDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/search_result_sample"
+                android:textSize="@dimen/h3TextSize"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/buttonReset"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                android:contentDescription="@string/button_reset_category_description"
+                android:focusable="true"
+                android:padding="4dp"
+                android:src="@drawable/ic_close"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/neutral_70" />
+
+            <TextView
+                android:id="@+id/tvCategory"
+                style="@style/textDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="15dp"
+                android:maxLines="1"
+                android:text="@string/search_result_sample"
+                android:textSize="@dimen/h3TextSize"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@id/buttonReset"
+                app:layout_constraintTop_toTopOf="@id/buttonReset"
+                app:layout_constraintBottom_toBottomOf="@id/buttonReset"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvItems"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/rv_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+    <include
+        android:id="@+id/state_view_layout"
+        layout="@layout/state_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="invisible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

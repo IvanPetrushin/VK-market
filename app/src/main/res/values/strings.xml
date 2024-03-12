@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">VK-market</string>
+
+    <string name="search_results">"\"%1$s\""</string>
+    <string name="category_results">"Category: %1$s"</string>
+
+    <string name="item_title_sample">Some Title</string>
+    <string name="item_description_sample">Description Example</string>
+    <string name="hint_search">Search</string>
+    <string name="search_result_sample">Results for \"\"</string>
+
+    <string name="null_description" />
+    <string name="button_category_menu_description">category menu</string>
+    <string name="button_reset_search_description">reset search</string>
+    <string name="button_search_description">search button</string>
+    <string name="button_reset_category_description">reset category</string>
+    <string name="list_of_goods">List of Goods</string>
+
+    <string name="new_price_sample">$1000.0</string>
+    <string name="old_price_sample">$500.0</string>
+    <string name="discount_sample">50%</string>
+    <string name="product_rating_sample">4.00</string>
+
+    <string name="networkError">"Error uploading data, check your network connection"</string>
+    <string name="retry">"Try again"</string>
+</resources>
